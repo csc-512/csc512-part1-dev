@@ -7,31 +7,39 @@
 
 2. Inside dev_part_1, run the following commands. This command builds your skeleton code
 
+```bash
 
-$ mkdir build
+mkdir build
 
-$ cd build
+cd build
 
-$ cmake ..
+cmake ..
 
-$ make
+make
 
-$ cd ..
-
+cd ..
+```
 3. Compile the logger.c file needed to log the branch and pointer trace
 
-$ gcc -shared -o liblogger.so logger.c -fPIC
+```bash
+gcc -shared -o liblogger.so logger.c -fPIC
+```
 
 4. Compile the input test file "test1.c" using clang 
 
-$ clang -fpass-plugin=`echo build/skeleton/SkeletonPass.*` -g test1.c -L. -llogger
+```bash
+clang -fpass-plugin=`echo build/skeleton/SkeletonPass.*` -g test1.c -L. -llogger
+```
 
 5. run the executable binary for test1
 
-$ ./a.out 
+```bash
+./a.out
+```
 
 6. For the current test file "test1.c" you should see the following output on the terminal 
 
+```
 *funcptr_0x55c8738f7160
 
 10
@@ -43,7 +51,7 @@ br_1
 br_1
 
 br_2
-
+```
 7. Check for the Mapping File generated in the current directory named "branch_info.txt"
 
 
