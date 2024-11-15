@@ -9,9 +9,13 @@
 
 
 $ mkdir build
+
 $ cd build
+
 $ cmake ..
+
 $ make
+
 $ cd ..
 
 3. Compile the logger.c file needed to log the branch and pointer trace
