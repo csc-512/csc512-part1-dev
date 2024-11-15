@@ -33,10 +33,15 @@ $ ./a.out
 6. For the current test file "test1.c" you should see the following output on the terminal 
 
 *funcptr_0x55c8738f7160
+
 10
+
 br_1
+
 br_1
+
 br_1
+
 br_2
 
 7. Check for the Mapping File generated in the current directory named "branch_info.txt"
