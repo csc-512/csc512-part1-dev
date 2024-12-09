@@ -22,9 +22,6 @@
 #include <stdlib.h>    /// for memory allocation
 #include <string.h>    /// for string operations
 
-/**
- * @brief structure defining a node in the binary tree
- */
 struct Node
 {
     char *word;          ///< the word (value) of the node
@@ -33,22 +30,12 @@ struct Node
     struct Node *right;  ///< pointer to the right child node
 };
 
-/**
- * @brief Ends program due to an error
- * @param errorMessage the error message to be printed
- * @returns void
- */
 void endProgramAbruptly(char *errorMessage)
 {
     fprintf(stderr, "%s\n", errorMessage);
     exit(EXIT_FAILURE);
 }
 
-/**
- * @brief Frees memory when program is terminating
- * @param node pointer to current node
- * @returns void
- */
 void freeTreeMemory(struct Node *node)
 {
     if (node != NULL)
@@ -61,12 +48,6 @@ void freeTreeMemory(struct Node *node)
     }
 }
 
-/**
- * @brief Stores word in memory
- * @param word word to be stored in memory
- * @returns a pointer to the newly allocated word if the word IS stored successfully
- * @returns `NULL` if the word is NOT stored
- */
 char *getPointerToWord(char *word)
 {
     char *string =
@@ -82,11 +63,6 @@ char *getPointerToWord(char *word)
     return NULL;
 }
 
-/**
- * @brief Closes the file after reading or writing
- * @param file pointer to the file to be closed
- * @returns void
- */
 void closeFile(FILE *file)
 {
     if (fclose(file)) {
@@ -94,11 +70,6 @@ void closeFile(FILE *file)
      }
 }
 
-/**
- * @brief Reserves memory for new node
- * @returns a pointer to the newly allocated node if memory IS successfully reserved
- * @returns `NULL` if memory is NOT reserved
- */
 struct Node *allocateMemoryForNode()
 {
     struct Node *node =
@@ -112,12 +83,6 @@ struct Node *allocateMemoryForNode()
     return NULL;
 }
 
-/**
- * @brief Writes contents of tree to another file alphabetically
- * @param node pointer to current node
- * @param file pointer to file
- * @returns void
- */
 void writeContentOfTreeToFile(struct Node *node, FILE *file)
 {
     static uint64_t i = 1;  ///< for word numbering in the write file
@@ -135,12 +100,6 @@ void writeContentOfTreeToFile(struct Node *node, FILE *file)
     }
 }
 
-/**
- * @brief Adds word (node) to the correct position in tree
- * @param word word to be inserted in to the tree
- * @param currentNode node which is being compared
- * @returns a pointer to the root node
- */
 struct Node *addWordToTree(char *word, struct Node *currentNode)
 {
     if (currentNode == NULL)  // checks if `currentNode` is `NULL`
@@ -173,16 +132,8 @@ struct Node *addWordToTree(char *word, struct Node *currentNode)
     return currentNode; // returns pointer to current node
 }
 
-/**
- * @brief Reads words from file to tree
- * @param file file to be read from
- * @param root root node of tree
- * @returns a pointer to the root node
- */
 struct Node *readWordsInFileToTree(FILE *file, struct Node *root)
 {
-    // longest english word = 45 chars
-    // +1 for '\0' = 46 chars
     char *inputString =
         (char *)malloc(46 * sizeof(char));  ///< pointer to the input string
 
@@ -195,26 +146,21 @@ struct Node *readWordsInFileToTree(FILE *file, struct Node *root)
         if (pos > 0)
             isPrevCharAlpha = isalpha(inputString[pos - 1]);
 
-        // checks if character is letter
         if (isalpha(inputChar))
         {
             inputString[pos++] = tolower(inputChar);
             continue;
         }
 
-        // checks if character is ' or - and if it is preceded by a letter eg
-        // yours-not, persons' (valid)
         if ((inputChar == '\'' || inputChar == '-') && isPrevCharAlpha)
         {
             inputString[pos++] = inputChar;
             continue;
         }
 
-        // makes sure that there is something valid in inputString
         if (pos == 0)
             continue;
 
-        // if last character is not letter and is not ' then replace by \0
         if (!isPrevCharAlpha && inputString[pos - 1] != '\'')
             pos--;
         inputString[pos] = '\0';
@@ -222,9 +168,6 @@ struct Node *readWordsInFileToTree(FILE *file, struct Node *root)
         isPrevCharAlpha = false;
         root = addWordToTree(inputString, root);
     }
-
-    // this is to catch the case for the EOF being immediately after the last
-    // letter or '
     if (pos > 0)
     {
         if (!isPrevCharAlpha && inputString[pos - 1] != '\'')
@@ -236,11 +179,6 @@ struct Node *readWordsInFileToTree(FILE *file, struct Node *root)
     free(inputString);
     return root;
 }
-
-/**
- * @brief Self-test implementations
- * @returns void
- */
 static void test()
 {
     struct Node *root = NULL;  ///< pointer to the root node
@@ -258,8 +196,6 @@ static void test()
     root = readWordsInFileToTree(file,
                                  root);  // reads words from test file to tree
 
-    // Tests to check if words were added to correct position in tree and also
-    // if their frequencies were added correctly
     assert(strcmp(root->word, "hey") == 0);
     assert(root->frequency == 1);
     assert(strcmp(root->left->word, "a") == 0);
@@ -276,8 +212,6 @@ static void test()
             "WORD");  // prints the heading to `wordcount.txt`
     writeContentOfTreeToFile(
         root, file);  // writes content of tree to file (`wordcount.txt`)
-
-    // Here is how the output to `wordcount.txt` should look like
     char *correctString =
         "S/N   	 FREQUENCY 	 WORD \n"
         "1     	 2         	 a \n"
@@ -292,9 +226,6 @@ static void test()
 
     int16_t inputChar;  // holds the current character in `wordcount.txt`
     uint64_t i = 0;     // holds the current index in `correctString`
-
-    // Checks if the content in `wordcount.txt` is as expected (the same as in
-    // `correctString`)
     while ((inputChar = fgetc(file)) != EOF) {
         assert(inputChar == correctString[i++]);
     }
@@ -305,10 +236,6 @@ static void test()
     freeTreeMemory(root);  // frees memory taken up by the tree
 }
 
-/**
- * @brief Main function
- * @returns 0 on exit
- */
 int main()
 {
     test();  // run self-test implementations
