@@ -58,3 +58,99 @@ br_2
 8. Check for the Mapping File generated in the current directory named "branch_info.txt"
 
 
+9. TO tes the branch-trace pass with the Test Programs, use below commands and run the programs following the instructions on the terminal, if any user input is needed. 
+
+```bash
+clang -fpass-plugin=`echo build/skeleton/SkeletonPass.*` -g Test_Programs/contact_mgmt_small.c -L. -llogger
+
+./a.out
+
+clang -fpass-plugin=`echo build/skeleton/SkeletonPass.*` -g Test_Programs/encryption_small.c -L. -llogger
+
+./a.out
+
+clang -fpass-plugin=`echo build/skeleton/SkeletonPass.*` -g Test_Programs/segment_tree_large.c -L. -llogger
+
+./a.out
+
+clang -fpass-plugin=`echo build/skeleton/SkeletonPass.*` -g Test_Programs/bank_management_large.c -L. -llogger
+
+./a.out
+
+clang -fpass-plugin=`echo build/skeleton/SkeletonPass.*` -g Test_Programs/words_alphabetical_large.c -L. -llogger
+
+./a.out
+```
+
+# Steps to download and run the Valgrind for Instruction Count
+
+1. Download and install valgrind on the "csc512_llvm" machine using below commands.
+
+
+```bash
+
+git clone https://sourceware.org/git/valgrind.git
+
+cd valgrind
+
+./autogen.sh
+
+./configure --prefix=<installation-directory>
+
+make
+
+make install
+
+```
+
+2. Modify the files within the valgrind home directory. First, modify the "configure.ac" file by adding below lines of code after the last "AC_CONFIG_FILES" entry.
+
+```
+AC_CONFIG_FILES([
+    foobar/Makefile
+    foobar/docs/Makefile
+    foobar/tests/Makefile
+])
+```
+
+3. Next, modify the "Makefile.am" in the valgrind home directory. Add below line of code in the "Tools" section after "none" 
+
+```
+none \
+foobar
+```
+
+4. Copy the "foobar" directory available in this repo to the valgrind home directory. 
+
+```bash
+cp -rf dev_part_1/valgrind_files/foobar <valgrind_home_dir>
+```
+
+5. Re-compile and build the Valgrind directory using below commands
+
+```bash
+./autogen.sh
+
+./configure --prefix=<installation-directory>
+
+make
+
+make install
+```
+
+6. Run the Valgrind on an executable to get the count of number of instructions executed.
+
+```bash
+<installation-directory>/bin/valgrind --tool=foobar <executable>
+```
+
+7. Here is an example run. I have installed the valgrind at the location "/home/mshaikh2/val_inst". I am using the executable "a.out" for the program test1.c available in the repo. 
+
+```bash
+/home/mshaikh2/val_inst/bin/valgrind --tool=foobar dev_part_1/a.out
+
+```
+
+
+
+   
