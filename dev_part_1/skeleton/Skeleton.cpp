@@ -85,17 +85,19 @@ struct SkeletonPass : public PassInfoMixin<SkeletonPass> {
 
                                     DILocation *successor_location = successor->front().getDebugLoc();
 
-                                    unsigned int target_line_number = successor_location->getLine();
+                                    if(successor_location) {
+                                        unsigned int target_line_number = successor_location->getLine();
 
-                                    branchInfos.push_back({source_file_name, branch_id_counter, source_line_number, target_line_number});
+                                        branchInfos.push_back({source_file_name, branch_id_counter, source_line_number, target_line_number});
 
-                                    IRBuilder<> Builder(func_context);
+                                        IRBuilder<> Builder(func_context);
 
-                                    Builder.SetInsertPoint(&(successor->front()));
+                                        Builder.SetInsertPoint(&(successor->front()));
 
-                                    Builder.CreateCall(branch_func_callee, {ConstantInt::get(Type::getInt32Ty(func_context), branch_id_counter)});
+                                        Builder.CreateCall(branch_func_callee, {ConstantInt::get(Type::getInt32Ty(func_context), branch_id_counter)});
 
-                                    branch_id_counter++;
+                                        branch_id_counter++;
+                                    }
 
                                 }
                             }
