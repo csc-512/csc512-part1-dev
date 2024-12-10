@@ -1,0 +1,174 @@
+mshaikh2@vclvm177-168:~/csc512-part1-dev/dev_part_1$ /home/mshaikh2/val_insta/bin/valgrind --tool=foobar /home/mshaikh2/csc512-part1-dev/dev_part_1/a.out 
+==62689== Countrind, Profiling tool to count the number of executed instructions
+==62689== Copyright (C) 2024, and GNU GPL'd, by Mushtaq Shaikh et al.
+==62689== Using Valgrind-3.25.0.GIT and LibVEX; rerun with -h for copyright info
+==62689== Command: /home/mshaikh2/csc512-part1-dev/dev_part_1/a.out
+==62689== 
+Choose a test to run:
+1. Test 1 (Minimum Range Query)
+2. Test 2 (Minimum and Maximum Range Query)
+Enter your choice (1 or 2): 1
+Running Test 1:
+br_1
+*funcptr_0x109820
+br_15
+br_1
+*funcptr_0x109820
+br_16
+br_1
+*funcptr_0x109820
+br_16
+br_1
+*funcptr_0x109820
+br_15
+br_1
+*funcptr_0x109820
+br_16
+br_1
+*funcptr_0x109820
+br_16
+br_1
+*funcptr_0x109820
+br_16
+br_1
+*funcptr_0x109820
+br_15
+br_1
+*funcptr_0x109820
+br_15
+br_2
+Initial Tree:
+Segment Tree Contents:
+br_11
+-2 br_11
+-2 br_11
+2 br_11
+-2 br_11
+0 br_11
+3 br_11
+2 br_11
+6 br_11
+-2 br_11
+1 br_11
+0 br_11
+3 br_11
+5 br_11
+7 br_11
+2 br_11
+11 br_11
+6 br_11
+-2 br_11
+8 br_12
+
+Detailed Segment Tree Information:
+Tree Length: 10
+Element Size: 4 bytes
+
+Leaf Nodes (Original Array):
+br_13
+Leaf 0: 1
+br_13
+Leaf 1: 0
+br_13
+Leaf 2: 3
+br_13
+Leaf 3: 5
+br_13
+Leaf 4: 7
+br_13
+Leaf 5: 2
+br_13
+Leaf 6: 11
+br_13
+Leaf 7: 6
+br_13
+Leaf 8: -2
+br_13
+Leaf 9: 8
+br_14
+br_5
+br_8
+*funcptr_0x109820
+br_16
+br_7
+br_9
+*funcptr_0x109820
+br_15
+br_10
+br_5
+br_8
+*funcptr_0x109820
+br_16
+br_7
+br_10
+br_6
+Minimum in range 3-6: 2
+br_19
+br_5
+br_7
+br_10
+br_5
+br_8
+*funcptr_0x109820
+br_16
+br_7
+br_10
+br_6
+Minimum in range 8-9: -2
+br_21
+Updating index 5 and 8 with value 12
+br_3
+*funcptr_0x109820
+br_15
+br_3
+*funcptr_0x109820
+br_15
+br_3
+*funcptr_0x109820
+br_15
+br_4
+br_3
+*funcptr_0x109820
+br_16
+br_3
+*funcptr_0x109820
+br_15
+br_3
+*funcptr_0x109820
+br_16
+br_3
+*funcptr_0x109820
+br_15
+br_4
+br_5
+br_7
+br_10
+br_5
+br_8
+*funcptr_0x109820
+br_16
+br_7
+br_9
+*funcptr_0x109820
+br_15
+br_10
+br_6
+Minimum in range 0-3: 0
+br_23
+br_5
+br_7
+br_10
+br_5
+br_8
+*funcptr_0x109820
+br_16
+br_7
+br_10
+br_6
+Minimum in range 8-9: 8
+br_25
+Test 1 Completed Successfully
+
+==62689== 
+==62689== Total number of instructions executed: 333749
+mshaikh2@vclvm177-168:~/csc512-part1-dev/dev_part_1$ 

@@ -1,0 +1,33 @@
+mshaikh2@vclvm177-168:~/csc512-part1-dev/dev_part_1$ /home/mshaikh2/val_insta/bin/valgrind --tool=foobar /home/mshaikh2/csc512-part1-dev/dev_part_1/a.out 
+==64054== Countrind, Profiling tool to count the number of executed instructions
+==64054== Copyright (C) 2024, and GNU GPL'd, by Mushtaq Shaikh et al.
+==64054== Using Valgrind-3.25.0.GIT and LibVEX; rerun with -h for copyright info
+==64054== Command: /home/mshaikh2/csc512-part1-dev/dev_part_1/a.out
+==64054== 
+br_2
+br_2
+br_8
+br_9
+Contact 1:
+Name: John Doe
+Phone: 123-456-7890
+Email: john@example.com
+
+br_9
+Contact 2:
+Name: Jane Smith
+Phone: 987-654-3210
+Email: jane@example.com
+
+br_10
+Enter name to search: John Doe
+br_3
+br_5
+br_11
+Contact found:
+Name: John Doe
+Phone: 123-456-7890
+Email: john@example.com
+==64054== 
+==64054== Total number of instructions executed: 179443
+mshaikh2@vclvm177-168:~/csc512-part1-dev/dev_part_1$ 
