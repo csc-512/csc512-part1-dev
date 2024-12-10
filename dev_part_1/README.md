@@ -43,23 +43,27 @@ clang -fpass-plugin=`echo build/skeleton/SkeletonPass.*` -g test1.c -L. -llogger
 7. For the current test file "test1.c" you should see the following output on the terminal 
 
 ```
-*funcptr_0x55c8738f7160
-
-10
-
+3
+*funcptr_0x5630262d3190
 br_1
-
+Hello World
 br_1
-
+Hello World
 br_1
-
+Hello World
 br_2
+br_3
+br_3
+br_3
+br_4
 ```
 8. Check for the Mapping File generated in the current directory named "branch_info.txt". Below is the output of the "branch_info.txt" file.
 
 ```
-br_1: test1.c, 12, 13
-br_2: test1.c, 12, 15
+br_1: test1.c, 7, 8
+br_2: test1.c, 7, 10
+br_3: test1.c, 22, 23
+br_4: test1.c, 22, 25
 ```
 
 
@@ -159,20 +163,26 @@ make install
 8. Below if the output of the Valgring run on the test1.c executable. 
 
 ```
-mshaikh2@vclvm179-45:~/csc512-part1-dev/dev_part_1$ /home/mshaikh2/val_inst/bin/valgrind --tool=foobar /home/mshaikh2/csc512-part1-dev/dev_part_1/a.out
-==63486== Countrind, Profiling tool to count the number of executed instructions
-==63486== Copyright (C) 2024, and GNU GPL'd, by Mushtaq Shaikh et al.
-==63486== Using Valgrind-3.25.0.GIT and LibVEX; rerun with -h for copyright info
-==63486== Command: /home/mshaikh2/csc512-part1-dev/dev_part_1/a.out
-==63486== 
-*funcptr_0x109160
-10
+==141551== Countrind, Profiling tool to count the number of executed instructions
+==141551== Copyright (C) 2024, and GNU GPL'd, by Mushtaq Shaikh et al.
+==141551== Using Valgrind-3.25.0.GIT and LibVEX; rerun with -h for copyright info
+==141551== Command: /home/mshaikh2/csc512-part1-dev/dev_part_1/a.out
+==141551== 
+3
+*funcptr_0x109190
 br_1
+Hello World
 br_1
+Hello World
 br_1
+Hello World
 br_2
-==63486== 
-==63486== Total number of instructions executed: 162248
+br_3
+br_3
+br_3
+br_4
+==141551== 
+==141551== Total number of instructions executed: 170184
 ```
 
 # Test Programs
