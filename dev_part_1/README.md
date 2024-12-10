@@ -68,7 +68,7 @@ br_4: test1.c, 22, 25
 ```
 
 
-10. To test the branch-trace pass with the Test Programs, use below commands and run the programs following the instructions on the terminal, if any user input is needed. 
+10. To test the branch-trace pass with the Test Programs, use below commands and run the programs following the instructions on the terminal, if any user input is needed. The output of each run can be found in the "output" directory. 
 
 ```bash
 clang -fpass-plugin=`echo build/skeleton/SkeletonPass.*` -g Test_Programs/contact_mgmt_small.c -L. -llogger
