@@ -151,6 +151,20 @@ make install
 
 ```
 
+# Test Programs
 
+1. The folder Test_Programs contains a total of 5 Programs which are used to test this work. Out of the 5, 2 are small contrived programs, where names follows with the suffix "_small". The remaining 3 are complex programs from Github repository, where the name is followed by suffix "_large".
 
-   
+2. Below are the details of the source of the large complex test programs.
+
+   Test_Programs/bank_management_large.c - https://github.com/AlgolRhythm/C-Bank-Management-Program/tree/master
+
+   Test_Programs/segment_tree_large.c - https://github.com/TheAlgorithms/C/blob/master/data_structures/binary_trees/segment_tree.c
+
+   Test_Programs/words_alphabetical_large.c - https://github.com/TheAlgorithms/C/blob/master/data_structures/binary_trees/words_alphabetical.c
+
+3. The details of the small programs are mentioned below:
+
+   Test_Programs/contact_mgmt_small.c - It is an interactive contact management system code.
+
+   Test_Programs/encryption_small.c - It is a simple file encryption code which encrypt any given file. 
