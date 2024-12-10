@@ -1,0 +1,26 @@
+mshaikh2@vclvm177-168:~/csc512-part1-dev/dev_part_1$ clang -fpass-plugin=`echo build/skeleton/SkeletonPass.*` -g Test_Programs/contact_mgmt_small.c -L. -llogger
+mshaikh2@vclvm177-168:~/csc512-part1-dev/dev_part_1$ ./a.out
+br_2
+br_2
+br_8
+br_9
+Contact 1:
+Name: John Doe
+Phone: 123-456-7890
+Email: john@example.com
+
+br_9
+Contact 2:
+Name: Jane Smith
+Phone: 987-654-3210
+Email: jane@example.com
+
+br_10
+Enter name to search: John Doe
+br_3
+br_5
+br_11
+Contact found:
+Name: John Doe
+Phone: 123-456-7890
+Email: john@example.com

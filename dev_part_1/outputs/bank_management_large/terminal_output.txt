@@ -1,0 +1,123 @@
+mshaikh2@vclvm177-168:~/csc512-part1-dev/dev_part_1$ ./a.out
+
+
+                Enter the password to login:codewithc
+br_124
+
+
+Password Match!
+sh: 1: color: not found
+LOADING
+
+                        CUSTOMER ACCOUNT BANKING MANAGEMENT SYSTEM
+
+
+                        ������� WELCOME TO THE MAIN MENU �������
+
+                1.Create new account
+                2.Update information of existing account
+                3.For transactions
+                4.Check the details of existing account
+                5.Removing existing account
+                6.View customer's list
+                7.Exit
+
+
+
+
+                 Enter your choice:1
+br_111
+                        ��� ADD RECORD ����
+
+
+Enter today's date(mm/dd/yyyy):12/10/2024
+
+Enter the account number:919559
+br_4
+
+Enter the name:Mushtaq
+
+Enter the date of birth(mm/dd/yyyy):11/01/1998
+
+Enter the age:25
+
+Enter the address:NC State 
+
+Enter the citizenship number:
+Enter the phone number: 9195593568
+
+Enter the amount to deposit:$100
+
+Type of account:
+        #Saving
+        #Current
+        #Fixed1(for 1 year)
+        #Fixed2(for 2 years)
+        #Fixed3(for 3 years)
+
+        Enter your choice:1
+
+Account created successfully!
+
+
+                Enter 1 to go to the main menu and 0 to exit:1
+br_7
+sh: 1: color: not found
+
+
+                        CUSTOMER ACCOUNT BANKING MANAGEMENT SYSTEM
+
+
+                        ������� WELCOME TO THE MAIN MENU �������
+
+                1.Create new account
+                2.Update information of existing account
+                3.For transactions
+                4.Check the details of existing account
+                5.Removing existing account
+                6.View customer's list
+                7.Exit
+
+
+
+
+                 Enter your choice:4
+br_112
+br_114
+br_116
+br_117
+Do you want to check by
+1.Account no
+2.Name
+Enter your choice:1
+br_72
+Enter the account number:919559
+br_74
+br_76
+
+Account NO.:919559
+Name:Mushtaq 
+DOB:11/1/1998 
+Age:25 
+Address:NC 
+Citizenship No:State 
+Phone number:9195593568 
+Type Of Account:1 
+Amount deposited:$ 100.00 
+Date Of Deposit:12/10/2024
+
+br_79
+br_81
+br_83
+br_85
+br_77
+br_75
+br_102
+
+Enter 1 to go to the main menu and 0 to exit:0
+br_110
+
+
+
+
+This C Mini Project is developed by Code With C team!mshaikh2@vclvm177-168:~/csc512-part1-dev/dev_part_1$ 
