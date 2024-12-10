@@ -1,3 +1,4 @@
+- Mushtaq Shaikh | mshaikh2 | mshaikh2@ncsu,edu
 # Steps to compile and run the code for BranchTrace
 
 1. Create a VCL Image "csc512_llvm" which has the LLVM installed 
