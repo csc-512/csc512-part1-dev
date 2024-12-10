@@ -55,10 +55,15 @@ br_1
 
 br_2
 ```
-8. Check for the Mapping File generated in the current directory named "branch_info.txt"
+8. Check for the Mapping File generated in the current directory named "branch_info.txt". Below is the output of the "branch_info.txt" file.
+
+```
+br_1: test1.c, 12, 13
+br_2: test1.c, 12, 15
+```
 
 
-9. TO tes the branch-trace pass with the Test Programs, use below commands and run the programs following the instructions on the terminal, if any user input is needed. 
+10. To test the branch-trace pass with the Test Programs, use below commands and run the programs following the instructions on the terminal, if any user input is needed. 
 
 ```bash
 clang -fpass-plugin=`echo build/skeleton/SkeletonPass.*` -g Test_Programs/contact_mgmt_small.c -L. -llogger
@@ -147,8 +152,27 @@ make install
 7. Here is an example run. I have installed the valgrind at the location "/home/mshaikh2/val_inst". I am using the executable "a.out" for the program test1.c available in the repo. 
 
 ```bash
-/home/mshaikh2/val_inst/bin/valgrind --tool=foobar dev_part_1/a.out
+/home/mshaikh2/val_inst/bin/valgrind --tool=foobar /home/mshaikh2/csc512-part1-dev/dev_part_1/a.out
 
+```
+
+8. Below if the output of the Valgring run on the test1.c executable. 
+
+```
+mshaikh2@vclvm179-45:~/csc512-part1-dev/dev_part_1$ /home/mshaikh2/val_inst/bin/valgrind --tool=foobar /home/mshaikh2/csc512-part1-dev/dev_part_1/a.out
+==63486== Countrind, Profiling tool to count the number of executed instructions
+==63486== Copyright (C) 2024, and GNU GPL'd, by Mushtaq Shaikh et al.
+==63486== Using Valgrind-3.25.0.GIT and LibVEX; rerun with -h for copyright info
+==63486== Command: /home/mshaikh2/csc512-part1-dev/dev_part_1/a.out
+==63486== 
+*funcptr_0x109160
+10
+br_1
+br_1
+br_1
+br_2
+==63486== 
+==63486== Total number of instructions executed: 162248
 ```
 
 # Test Programs
